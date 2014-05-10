@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-jsptaglibrary_2_0.xsd">
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>2.0</jsp-version>
+	<short-name>h</short-name>
+	<uri>/hxhktag</uri>
+	<description>框架自定义标签</description>
+	<tag>
+		<name>pageInfo</name>
+		<tag-class>com.hxhk.util.tag.PageTag</tag-class>
+		<body-content>empty</body-content>
+		<description>框架自定义分页标签</description>
+		<attribute>
+			<name>page</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>	
+			<description>框架自定义分页对象</description>		
+		</attribute>
+		<attribute>
+			<name>targetType</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>框架自定义分页刷新目标类型包括navTab，dialog</description>					
+		</attribute>
+	</tag>
+
+</taglib>

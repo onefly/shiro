@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+	<!-- 控制台输出日志及格式 -->
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%p] %d{yyyy-MM-dd HH:mm:ss} %l: %m%n" />
+		</layout>
+	</appender>
+
+	<!-- 每天产生一个日志文件及格式 -->
+	<appender name="rootLogger" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 设置file参数，日志输出位置及文件名 -->
+		<param name="File" value="../logs/hxhkframe_rootLogger.log" />
+		
+		<!-- 设置是否在重新启动服务时，在原有日志的基础添加新日志 -->
+		<param name="Append" value="true" />
+		
+		<!-- 设置输出文件项目和格式 -->
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		
+		<!-- 灵活的指定布局格式-->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%p] %d{yyyy-MM-dd HH:mm:ss} %l: %m%n" />
+		</layout>
+	</appender>
+
+	<!-- com.bonc包下的相关信息，级别为debug，在控制台和日志文件中都会有输出,继承关系为false -->
+	<logger name="com.hxhk" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="console" />
+		<appender-ref ref="rootLogger" />
+	</logger>
+
+	<logger name="org.hibernate.cache" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="console" />
+		<appender-ref ref="rootLogger" />
+	</logger>
+
+	<logger name="com.mchange" additivity="false">
+		<level value="error" />
+		<appender-ref ref="console" />
+		<appender-ref ref="rootLogger" />
+	</logger>
+
+	<logger name="org.springframework" additivity="false">
+		<level value="error" />
+		<appender-ref ref="console" />
+		<appender-ref ref="rootLogger" />
+	</logger>
+
+	<logger name="com.opensymphony.xwork2" additivity="false">
+		<level value="warn" />
+		<appender-ref ref="console" />
+		<appender-ref ref="rootLogger" />
+	</logger>
+
+	<logger name="java.sql.Connection" additivity="true">
+		<level value="INFO" />
+	</logger>
+
+	<logger name="java.sql.Statement" additivity="true">
+		<level value="info" />
+	</logger>
+
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="console" />
+		<appender-ref ref="rootLogger" />
+	</root>
+
+</log4j:configuration>

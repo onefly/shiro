@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="false">
+
+	<diskStore path="java.io.tmpdir/hibernate/electric-charge" />
+
+	<!-- DefaultCache setting. -->
+	<defaultCache 
+		eternal="false"
+		timeToIdleSeconds="300" 
+		timeToLiveSeconds="600" 
+		overflowToDisk="true"
+		memoryStoreEvictionPolicy="LFU"/>
+		
+	<!-- security entity-->		
+	<cache 
+		name="com.hxhk.security.entity.main"
+		eternal="true" 
+		overflowToDisk="true"
+ />
+		
+		
+		
+</ehcache>
